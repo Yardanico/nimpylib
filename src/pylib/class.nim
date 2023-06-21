@@ -6,7 +6,7 @@ macro class*(obj, body: untyped): untyped =
   
   result = newStmtList()
   
-  for item in body:
+  for def in body:
     #[def has AST structure like this:
       Command
         Ident !"def"
@@ -20,7 +20,6 @@ macro class*(obj, body: untyped): untyped =
           procedure body here
     ]#
     # Other stuff than defines: comments, etc
-    var def = item
     if def.kind != nnkCommand:
       continue
     var isAsync = false
