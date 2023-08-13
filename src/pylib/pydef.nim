@@ -105,9 +105,9 @@ macro def*(signature, body): untyped =
   runnableExamples:
     def add(a,b): return a + b # use auto as argtype and restype
     def iadd(a: int, b = 1): return a + b
-    def max(a, b, *args):
+    def max(a, b, *args): # restype is omitted
       "doc-str. This is a fully python-compatiable `max`"
-      def max2(a,b):
+      def max2(a: int, b: int):
         if a>b: return a
         else: return b
       for i in args:
