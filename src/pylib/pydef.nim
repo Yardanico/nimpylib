@@ -12,7 +12,7 @@ support:
 limits:
   - `*args` can only contain one type's arguments
   - can't combine type and defval i.e. `param: type = defval` is unsupported
-  - for async def, only `-> Future[void]` can be ommited. Refer to std/asyncmacro for details
+  - for async def, only `-> Future[void]` can be omitted. Refer to std/asyncmacro for details
   - variables must be declared using `let`/`var`/`const` (this can be solved but is unnecessary)
   
 unsupport:
@@ -58,7 +58,7 @@ proc defAux(signature, body: NimNode, def_argtype = ident"untyped", restype = de
     params.add newIdentDefs(
             pname # name
            ,typ   # type
-           ,val   # default value # can be ommitted as empty node is default value
+           ,val   # default value # can be omitted as empty node is default value
     )
 
   var nbody = newStmtList()
