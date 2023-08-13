@@ -107,7 +107,7 @@ macro def*(signature, body): untyped =
     def iadd(a: int, b = 1): return a + b
     def max(a, b, *args): # restype is omitted
       "doc-str. This is a fully python-compatiable `max`"
-      def max2(a: int, b: int):
+      def max2(a: int, b: int) -> int:
         if a>b: return a
         else: return b
       for i in args:
