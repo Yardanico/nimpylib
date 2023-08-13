@@ -23,6 +23,13 @@ print( f"{9.0} Hello {42} World {1 + 2}" ) # Python-like string interpolation
 let python_like_range = xrange(0, -10, -2) # range() is named xrange() like Python2
 print(list(python_like_range)) # @[0, -2, -4, -6, -8]
 
+# func definition
+# typing is suppported and optional
+def f(a: int, b = 1, *args) -> int:
+  def add(a, b): return a + b # nesting
+  for i in args: print(i)
+  return add(a, b)
+
 for i in xrange(10):
   # 0 1 2 3 4 5 6 7 8 9
   print(i, endl=" ")
