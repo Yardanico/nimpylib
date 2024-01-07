@@ -22,6 +22,9 @@ macro class*(obj, body: untyped): untyped =
     # Other stuff than defines: comments, etc
     if def.kind != nnkCommand:
       continue
+    var isAsync = false
+    if $def[0] == "async" or $def[0] == "async_def" or $def[0] == "asyncdef":
+      isAsync = true
     # a(b, c=1)
     let define = def[1]
     var procName = define[0]
@@ -73,6 +76,7 @@ macro class*(obj, body: untyped): untyped =
     # Add statement which will occur before function body
     beforeBody.add firstBody
     # Finally create a procedure and add it to result!
-    result.add newProc(procName, args, beforeBody, nnkProcDef)
+    if not isAsync: result.add newProc(procName, args, beforeBody, nnkProcDef)
+    else: result.add newProc(procName, args, beforeBody, nnkProcDef, parseExpr("{.async.}"))
   # Echo generated code
   # echo result.toStrLit
