@@ -10,12 +10,13 @@ import pylib/[
   class, print, types, ops, unpack,
   string/strops, string/pystring,
   tonim, pyrandom, xrange, pytables,
-  pywith
+  pywith, def, async_def, asyncdef
 ]
+
 export
   class, print, types, ops, unpack, strops,
   pystring, tonim, pyrandom, xrange, pytables,
-  pywith
+  pywith, def, asyncdef, async_def
 
 when not defined(pylibNoLenient):
   {.warning: "'lenientops' module was imported automatically. Compile with -d:pylibNoLenient to disable it if you wish to do int->float conversions yourself".}
